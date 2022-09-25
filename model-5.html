@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --size-cell: 312px;
+    }
+
+    html, body {
+      width: 100vw;
+      height: 100%;
+      background-color: burlywood;
+      text-transform: uppercase;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      font-size: 40px;
+      font-weight: 800;
+      color: antiquewhite;
+    }
+
+    .container {
+      width: 80vw;
+      /* sem fixar height, para não dar strech na última linha*/
+      margin: 8vh auto 0 auto;
+      display: grid;
+      gap: 3px; /* Distanciamento de 3px entre células */
+      grid-template-columns: repeat(auto-fit, minmax(var(--size-cell), 1fr)); /* Auto-fit:  As colunas em largura fixa se ajustarão ao width. Wrap é automático. Com minmax, célula varia entre mínimo e uma fração, de modo que o container se ajusta à área delimitada, sem deixar margem.*/
+      grid-template-rows: repeat(2, var(--size-cell)); /* */
+   
+    }
+    
+    .child {
+      background-color: blue;
+      line-height: var(--size-cell);
+      text-align: center;
+      border-radius: 5px;
+      transition: all .6s ease-in-out;
+    }
+
+    .child:nth-child(n) {
+      background-color: rgb(201, 181, 219);
+    }
+
+    .child:nth-child(2n) {
+      background-color: rgb(36, 8, 61);
+    }
+
+    .child:nth-child(3n) {
+      background-color: blueviolet;
+    }
+
+    .child:nth-child(4n) {
+      background-color: rgb(94, 46, 139);
+    }
+
+    .child:hover {
+      transform: scale(1.05) rotate(6deg);
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="child">1</div>
+    <div class="child">2</div>
+    <div class="child">3</div>
+    <div class="child">4</div>
+    <div class="child">5</div>
+    <div class="child">6</div>
+    <div class="child">7</div>
+    <div class="child">8</div>
+    <div class="child">9</div>
+    <div class="child">10</div>
+    <div class="child">11</div>
+    <div class="child">12</div>
+  </div>
+</body>
+</html>

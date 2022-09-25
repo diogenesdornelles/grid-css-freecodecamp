@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --header-tall: 50px;
+    }
+
+    html, body {
+      width: 100vw;
+      height: 100%;
+      background-color: burlywood;
+      text-transform: uppercase;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      font-size: 40px;
+      font-weight: 800;
+      color: antiquewhite;
+      
+    }
+
+    .container {
+      width: 80vw;
+      height: 80vh;
+      margin: 8vh auto 0 auto;
+      display: grid;
+      gap: 3px; /* Distanciamento de 3px entre células */
+      grid-template-columns: repeat(12, 1fr); /* As colunas terão espaçamento igual de width/12 */
+      grid-template-rows: var(--header-tall) auto var(--header-tall); /* Linhas de header e footer terão altura de 40px e content altura auto*/
+      justify-items: normal; /*justify-items alinha os itens em si, em relação ao eixo column*/
+      align-items:end; /*align-items alinha os itens em si, em relação ao eixo row*/
+    }
+
+    .header {
+      grid-column: 1 / -1;
+      background-color: blueviolet;
+      text-align: center;
+      line-height: 50px;
+    }
+
+    .menu {
+      grid-column: 1;
+      background-color: cadetblue;
+      text-align: center;
+      line-height: calc(80vh - var(--header-tall));
+    }
+
+    .content {
+      grid-column: 2 / -1;
+      background-color: crimson;
+      text-align: center;
+      line-height: calc(80vh - var(--header-tall));
+    }
+
+    .footer {
+      grid-column: 1 / -1; 
+      background-color: darkolivegreen;
+      text-align: center;
+      line-height: 50px;
+      
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">HEADER</div>
+    <div class="menu">MENU</div>
+    <div class="content">CONTENT</div>
+    <div class="footer">FOOTER</div>
+  </div>
+</body>
+</html>

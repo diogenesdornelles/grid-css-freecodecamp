@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-size: 0;
+    }
+    
+    html, body {
+      width: 100vw;
+      height: 100%;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      background-color: dodgerblue;
+    }
+
+    .container {
+      width: 80vmax;
+      margin: 10%;
+      height: 30%;
+    }
+
+    h1 {
+      text-align: center;
+      padding: 10px 0 20px 0;
+      text-transform: uppercase;
+      color: white;
+      font-weight: 800;
+      font-size: 60px;
+      padding: 50px;
+    }
+
+    .items {
+      display: flex;
+      gap: 20px;
+      background-color:dodgerblue;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      border-radius: 10px;
+    }
+
+    .items > div {
+      border-radius: 10px;
+      min-width: 250px;
+      scroll-snap-align: start;
+    }
+
+    .items div label {
+      cursor: pointer;
+    }
+    
+    .items div input {
+      width: 0;
+      height: 0;
+      
+    }
+
+    .items div label img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .full-image {
+      display: none;
+    }
+
+    .items div > img {
+      display: none;
+      transition: all 1s ease-in;
+    }
+
+    .items div input:checked ~ .full-image {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-color: black;
+      opacity: .6;
+      border-radius: 0;
+    }
+
+    .items div input:checked + img {
+      display: block;
+      width: 60vmax;
+      height: auto;
+      z-index: 20;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .container-2 {
+      width: 40vw;
+      height: 40vh;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+
+    .image {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      transition: all 1s ease-in;
+    }
+    .image:hover {
+      transform: scale(1.25) rotate(3deg);
+    }
+    
+    ::-webkit-scrollbar {
+      width: 20px;
+      border-radius: 10px;
+      background-color: steelblue;
+
+    }
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px grey;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #444;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+    <h1>Scroll Snap</h1>
+    <div class="items">
+      <script> 
+        function uncheck() {
+          document.getElementById("item-check-1").checked = false;
+          document.getElementById("item-check-2").checked = false;
+          document.getElementById("item-check-3").checked = false;
+          document.getElementById("item-check-4").checked = false;
+          document.getElementById("item-check-5").checked = false;
+          document.getElementById("item-check-6").checked = false;
+          document.getElementById("item-check-7").checked = false;
+        };
+      </script>
+      <div>
+        <label for="item-check-1"><img src="images-2/imag8.jpg" alt="imagem"></label>
+        <input type="checkbox" name="item" id="item-check-1">
+        <img src="images-2/imag8.jpg" alt="imagem" onclick=uncheck()>
+        <div class="full-image">
+        </div>
+      </div>
+      <div>
+        <label for="item-check-2"><img src="images-2/imag16.jpg" alt=""></label>
+        <input type="checkbox" name="item" id="item-check-2">
+        <img src="images-2/imag16.jpg" alt="imagem"  onclick=uncheck()>
+        <div class="full-image">
+        </div>
+      </div>
+      <div>
+        <label for="item-check-3"><img src="images-2/imag17.jpg" alt="imagem"></label>
+        <input type="checkbox" name="item" id="item-check-3">
+        <img src="images-2/imag17.jpg" alt="imagem"  onclick=uncheck()>
+        <div class="full-image">
+        </div>
+      </div>
+      <div>
+        <label for="item-check-4"><img src="images-2/imag2.jpg" alt=""></label>
+        <input type="checkbox" name="item-4" id="item-check-4">
+        <img src="images-2/imag2.jpg" alt="imagem" onclick=uncheck()>
+        <div class="full-image">
+        </div>
+      </div>
+      <div>
+        <label for="item-check-5"><img src="images-2/imag7.jpg" alt=""></label>
+        <input type="checkbox" name="item-5" id="item-check-5">
+        <img src="images-2/imag7.jpg" alt="imagem" onclick=uncheck()>
+        <div class="full-image">
+        </div>
+      </div>
+      <div>
+        <label for="item-check-6"><img src="images-2/imag16.jpg" alt=""></label>
+        <input type="checkbox" name="item-6" id="item-check-6">
+        <img src="images-2/imag16.jpg" alt="imagem" onclick=uncheck()>
+        <div class="full-image">
+        </div>
+      </div>
+      <div>
+        <label for="item-check-7"><img src="images-2/imag2.jpg" alt=""></label>
+        <input type="checkbox" name="item-7" id="item-check-7">
+        <img src="images-2/imag2.jpg" alt="imagem" onclick=uncheck()>
+        <div class="full-image">
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="container-2">
+    <img src="images-2/imag2.jpg" alt="imagem" class="image">
+  </div>
+</body>
+</html>
